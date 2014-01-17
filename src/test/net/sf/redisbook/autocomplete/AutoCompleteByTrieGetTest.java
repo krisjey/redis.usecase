@@ -37,7 +37,13 @@ public class AutoCompleteByTrieGetTest {
         phrases = autoComplete.getPhrase("4");
         assertNotNull(phrases);
 
-        phrases = autoComplete.getPhrase("42");
+        phrases = autoComplete.getPhrase("가");
+        assertNotNull(phrases);
+        System.out.println(phrases);
+
+        phrases = autoComplete.getPhrase("강");
+        assertNotNull(phrases);
+        System.out.println(phrases);
 
 //        autoComplete.releaseConnection();
 
@@ -45,7 +51,7 @@ public class AutoCompleteByTrieGetTest {
     }
 
     @Test
-//  @Ignore
+  @Ignore
     public void testGetPhraseLoop() {
         AutoCompleteByTrie autoComplete = new AutoCompleteByTrie(jedisHelper);
         List<String> phrases = null;
