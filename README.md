@@ -44,6 +44,16 @@ Here is a code for building a trie.
 
 If subset of keyword is "re" then that need a single zrange and mget call.
 
+Here is a code for data retreive
+ 
+	public List<String> getPhrase(String prefix) {
+        Set<String> phraseIds = jedis.zrange(prefix, 0, 4);
+        if (phraseIds.size() == 0)   {
+            return new ArrayList<String>();
+        }
+        return jedis.mget(phraseIds.toArray(new String[phraseIds.size()]));
+    }
+
 The read performance is over 7k on my notbook(i5-3337u) and benchmark result is here. 
 
 "SET","27777.78"
