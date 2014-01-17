@@ -2,7 +2,7 @@
 <!DOCTYPE>
 <html>
 <head>
-<title>redis 데모</title>
+<title>redis demo</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport"

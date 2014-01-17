@@ -1,6 +1,6 @@
 <%@ page session="false" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 	<div class="wrap">
-		<span>10억명(1,000,000,000) 대상 Counter</span>
+		<span>1,000,000,000 user based counter</span>
 	</div>
 <script type="text/javascript">
 $(function() {
@@ -29,12 +29,12 @@ $(function() {
 	<div id="header" class="welcome">
 		<div id="nav">
 			<div class="wrap">
-				<a href="<%=request.getContextPath() %>/autocomplete_test.jsp">자동완성 테스트</a>
-				<a href="<%=request.getContextPath() %>/autocomplete_add.jsp">자동완성 키워드 추가</a>
-				<a href="<%=request.getContextPath() %>/pv_daily.jsp">일간 누적방문 조회</a>
-				<a href="<%=request.getContextPath() %>/uv_daily.jsp">일간 순 방문 조회</a>
-				<a href="<%=request.getContextPath() %>/uv_weekly.jsp">주간 순 방문 조회</a>
-				<a href="<%=request.getContextPath() %>/uv_user_list.jsp">주간 순 방문자 목록 조회</a>
+				<a href="<%=request.getContextPath() %>/autocomplete_test.jsp">Autocomplete</a>
+				<a href="<%=request.getContextPath() %>/autocomplete_add.jsp">add a autocomplete phrase</a>
+				<a href="<%=request.getContextPath() %>/pv_daily.jsp">daily total visit count</a>
+				<a href="<%=request.getContextPath() %>/uv_daily.jsp">daily unique visit count</a>
+				<a href="<%=request.getContextPath() %>/uv_weekly.jsp">weekly unique visit count</a>
+				<a href="<%=request.getContextPath() %>/uv_user_list.jsp">weekly unique visit user list</a>
 			</div>
 		</div>
 	</div>
