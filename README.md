@@ -1,33 +1,24 @@
 redis.usecase
 =============
+> Use cases of Redis.
 
-This Repo is several implementation of redis use case.
+This repository has Redis use cases including Autocomplete feature. PV and UV features will be pushed later.
 
-Currently, Autocomplete feature is pushed.
 
-Later PV, UV feature will be pushed to this repo
+## A performance issue of Autocomplete with TRIE data structure
 
-## Autocomplete using TRIE data structuer.
+This use cases are using TRIE data structure which is introduced from Salvatore Sanfilippo few years ago. When I made a java implementation first time, it's too slow to use. I've digged more and found out that the problem was frequent calling of zrange command. If there're many keywords or long sentences to autocomplete then they call a lot of zrange.
 
-This implementation is using trie data structure.
 
-Few years ago, Salvatore Sanfilippo introduced about Autocomplete with Redis.
+## How to solve above problem?
 
-Now i need a this feature. so i tried to start java implementation.
-But, result is too slow.
+ - Every keyword has a keyword id.
+ - Every trie node should be converted to zset.
+ - Each trie node's path should be converted to zset's key name.
+ - Each node has a keyword id.
 
-I digging more and more. root cause of slow is that frequent call of zrange command.
 
-If there are too many keyword for autocomplete or too long sentences then that need a lots of zrange call.
-
-Below is solution of single zrange call.
-
-- Every keyword has a keyword id.
-- Every trie node convert to zset.
-- Each trie node's path convert to zset's key name.
-- Each node has a keyword id.
-
-Here is a code for building a trie.
+### Code
 
         Pipeline pipeline = jedis.pipelined();
         String phraseId = Long.toString(MurmurHash.hash64A(phrase.getBytes(), SEED_MURMURHASH));
@@ -42,10 +33,10 @@ Here is a code for building a trie.
 
         pipeline.sync();
 
-If subset of keyword is "re" then that need a single zrange and mget call.
+If a keyword has "re" as a its subset then that means it needs to call each zrange and mget seperately.
 
-Here is a code for data retreive
- 
+Here is a code to retreive data.
+
 	public List<String> getPhrase(String prefix) {
         Set<String> phraseIds = jedis.zrange(prefix, 0, 4);
         if (phraseIds.size() == 0)   {
@@ -54,7 +45,7 @@ Here is a code for data retreive
         return jedis.mget(phraseIds.toArray(new String[phraseIds.size()]));
     }
 
-The read performance is over 7k on my notbook(i5-3337u) and benchmark result is here. 
+The read performance is over 7k on my laptop(i5-3337u) and the benchmark result is here.
 
 "SET","27777.78"
 "GET","30303.03"
