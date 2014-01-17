@@ -28,13 +28,7 @@ public class AutoCompleteBuilderByTrie {
 
         StringBuilder builder = new StringBuilder(result.length());
         for (char element : result.toCharArray()) {
-//            if (element == ' ')   {
-//                // do nothing
-//            }
-//            else    {
-//            }
             builder.append(element);
-
             pipeline.zadd(builder.toString(), score, phraseId);
         }
 

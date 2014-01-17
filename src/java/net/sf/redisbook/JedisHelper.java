@@ -5,8 +5,8 @@ import org.apache.commons.pool.impl.GenericObjectPool.Config;
 import redis.clients.jedis.*;
 
 public class JedisHelper {
-	protected static final String REDIS_HOST = "192.168.56.101";
-//	protected static final String REDIS_HOST = "192.168.56.1";
+//	protected static final String REDIS_HOST = "192.168.56.101";
+	protected static final String REDIS_HOST = "192.168.56.1";
 	protected static final int REDIS_PORT = 6379;
 	private final Set<Jedis> connectionList = new HashSet<Jedis>();
 	private final JedisPool pool;

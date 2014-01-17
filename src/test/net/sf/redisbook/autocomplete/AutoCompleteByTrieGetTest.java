@@ -2,11 +2,8 @@ package net.sf.redisbook.autocomplete;
 
 import static org.junit.Assert.*;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.List;
+import java.util.Random;
 
 import net.sf.redisbook.JedisHelper;
 
@@ -52,8 +49,11 @@ public class AutoCompleteByTrieGetTest {
     public void testGetPhraseLoop() {
         AutoCompleteByTrie autoComplete = new AutoCompleteByTrie(jedisHelper);
         List<String> phrases = null;
+        Random r = new Random();
+
         for (int i = 0; i < 100000; i++) {
-            phrases = autoComplete.getPhrase("a");
+            char c = (char) (r.nextInt(26) + 'a');
+            phrases = autoComplete.getPhrase(String.valueOf(c));
         }
         assertNotNull(phrases);
 
