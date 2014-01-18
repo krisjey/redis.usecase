@@ -7,7 +7,7 @@ This repository has Redis use cases including Autocomplete feature. PV and UV fe
 
 ## A performance issue of Autocomplete with TRIE data structure
 
-This use cases are using TRIE data structure which is introduced from Salvatore Sanfilippo few years ago. When I made a java implementation first time, it's too slow to use. I've digged more and found out that the problem was frequent calling of zrange command. If there're many keywords or long sentences to autocomplete then they call a lot of zrange.
+These use cases are using TRIE data structure which is introduced from Salvatore Sanfilippo few years ago. When I made a java implementation first time, it's too slow to use. I've digged more and found out that the problem was frequent calling of zrange command. If there're many keywords or long sentences to autocomplete then they call a lot of zrange.
 
 
 ## How to solve above problem?
