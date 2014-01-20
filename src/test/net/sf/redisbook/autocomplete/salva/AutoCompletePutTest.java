@@ -1,7 +1,5 @@
 package net.sf.redisbook.autocomplete.salva;
 
-import static org.junit.Assert.*;
-
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;

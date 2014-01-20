@@ -12,7 +12,7 @@ public class JedisHelper {
 	private final JedisPool pool;
 
 	/**
-	 * 제디스 연결풀 생성을 위한 도우미 클래스 내부 생성자. 싱글톤 패턴이므로 외부에서 호출할 수 없다.
+	 * Constructor of Jedis helper. It cannot be called from out of class.
 	 */
 	private JedisHelper() {
 		Config config = new Config();
@@ -23,7 +23,7 @@ public class JedisHelper {
 	}
 
 	/**
-	 * 싱글톤 처리를 위한 홀더 클래스, 제디스 연결풀이 포함된 도우미 객체를 반환한다.
+	 * Singleton holder
 	 */
 	private static class LazyHolder {
 		@SuppressWarnings("synthetic-access")
@@ -31,8 +31,8 @@ public class JedisHelper {
 	}
 
 	/**
-	 * 싱글톤 객체를 가져온다.
-	 * @return 제디스 도우미객체
+	 * Get the jedisHelper instance from holder
+	 * @return JedisHelper instance
 	 */
 	@SuppressWarnings("synthetic-access")
 	public static JedisHelper getInstance() {
@@ -40,8 +40,8 @@ public class JedisHelper {
 	}
 
 	/**
-	 * 제디스 클라이언트 연결을 가져온다.
-	 * @return 제디스 객체
+	 * Get jedis instance from Jedis pool
+	 * @return jedis
 	 */
 	final public Jedis getConnection() {
 		Jedis jedis = this.pool.getResource();
@@ -51,15 +51,15 @@ public class JedisHelper {
 	}
 
 	/**
-	 * 사용이 완료된 제디스 객체를 회수한다.
-	 * @param jedis 사용 완료된 제디스 객체
+	 * Return jedis instance to Jedis pool
+	 * @param used jedis instance
 	 */
 	final public void returnResource(Jedis jedis)	{
 		this.pool.returnResource(jedis);
 	}
 
 	/**
-	 * 제디스 연결풀을 제거한다.
+	 * destory jedis pool
 	 */
 	final public void destoryPool() {
 		Iterator<Jedis> jedisList = this.connectionList.iterator();

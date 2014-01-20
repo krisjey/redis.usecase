@@ -15,15 +15,14 @@ public class AutoCompleteByTrie {
     }
 
     /**
-     * 주어진 Prefix에 매칭되는 데이터를 조회한다.
-     * @param prefix
-     * @return
+     * Retrieve matched data from autocomplete dic.
+     * @param prefix for searching
+     * @return matched data by prefix
      */
     public List<String> getPhrase(String prefix) {
         KoreanSoundExtractor koreanSoundExtractor = new KoreanSoundExtractor();
         String result = koreanSoundExtractor.getSoundExtractedString(prefix);
 
-        // TODO 하나의 zset에 가장 많이 들어있는 개수 확인하기.
         Set<String> phraseIds = jedis.zrange(result, 0, 4);
         if (phraseIds.size() == 0)   {
             return new ArrayList<String>();

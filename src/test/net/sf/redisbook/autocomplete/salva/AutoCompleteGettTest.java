@@ -1,18 +1,9 @@
 package net.sf.redisbook.autocomplete.salva;
 
-import static org.junit.Assert.*;
-
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
-
-import net.sf.redisbook.JedisHelper;
-import net.sf.redisbook.autocomplete.AutoCompleteBuilderByTrie;
 
 import org.junit.After;
 import org.junit.Before;

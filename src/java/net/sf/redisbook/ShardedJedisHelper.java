@@ -2,16 +2,16 @@
  * author : Kris Jeong
  * published : 2013. 6. 18.
  * project name : redis-book
- * 
+ *
  * Email : smufu@naver.com, smufu1@hotmail.com
- * 
+ *
  * Develop JDK Ver. 1.6.0_13
- * 
+ *
  * Issue list.
- * 
+ *
  * 	function.
- *     1. 
- *     
+ *     1.
+ *
  ********** process *********
  *
  ********** edited **********
@@ -29,7 +29,7 @@ import redis.clients.util.Hashing;
 /**
  * @author <A HREF="mailto:smufu@naver.com">kris jeong</A> smufu@naver.com
  *
- * class desc
+ * Create a Sharded jedis pool.
  */
 public class ShardedJedisHelper {
 	protected static final String SHARD1_HOST = "192.168.56.102";
@@ -39,10 +39,10 @@ public class ShardedJedisHelper {
 
 	private final Set<ShardedJedis> connectionList = new HashSet<ShardedJedis>();
 
-	private ShardedJedisPool shardedPool;
-	
+	private final ShardedJedisPool shardedPool;
+
 	/**
-	 * 싱글톤 처리를 위한 홀더 클래스, 제디스 연결풀이 포함된 도우미 객체를 반환한다.
+	 * Constructor of Jedis helper. It cannot be called from out of class.
 	 */
 	private static class LazyHolder {
 		@SuppressWarnings("synthetic-access")
@@ -50,8 +50,8 @@ public class ShardedJedisHelper {
 	}
 
 	/**
-	 * 샤딩된 제디스 연결풀 생성을 위한 도우미 클래스 내부 생성자. 
-	 * 싱글톤 패턴이므로 외부에서 호출할 수 없다.
+	 * Constructor of sharded jedis pool.
+	 * It cannot be called from out of class.
 	 */
 	private ShardedJedisHelper() {
 		Config config = new Config();
@@ -66,17 +66,17 @@ public class ShardedJedisHelper {
 	}
 
 	/**
-	 * 싱글톤 객체를 가져온다.
-	 * @return 제디스 도우미객체
-	 */
+     * Get the sharded jedisHelper instance from holder
+     * @return JedisHelper instance
+     */
 	@SuppressWarnings("synthetic-access")
 	public static ShardedJedisHelper getInstance() {
 		return LazyHolder.INSTANCE;
 	}
 
 	/**
-	 * 제디스 클라이언트 연결을 가져온다.
-	 * @return 제디스 객체
+	 * Get the jedis client connection form Sharded jedis pool.
+	 * @return sharded jedis instance.
 	 */
 	final public ShardedJedis getConnection() {
 		ShardedJedis jedis = this.shardedPool.getResource();
@@ -86,16 +86,16 @@ public class ShardedJedisHelper {
 	}
 
 	/**
-	 * 사용이 완료된 제디스 객체를 회수한다.
-	 * @param jedis 사용 완료된 제디스 객체
-	 */
+     * Return jedis instance to Jedis pool
+     * @param used jedis instance
+     */
 	final public void returnResource(ShardedJedis jedis) {
 		this.shardedPool.returnResource(jedis);
 	}
 
 	/**
-	 * 제디스 연결풀을 제거한다.
-	 */
+     * destory jedis pool
+     */
 	final public void destoryPool() {
 		Iterator<ShardedJedis> jedisList = this.connectionList.iterator();
 		while (jedisList.hasNext()) {

@@ -1,6 +1,5 @@
 package net.sf.redisbook.autocomplete;
 
-import java.util.List;
 import java.util.Set;
 
 import net.sf.redisbook.JedisHelper;
@@ -38,12 +37,8 @@ public class AutoComplete {
         pipeline.sync();
     }
 
-    private void getIndexFromRedis() {
-
-    }
-
     public Set<String> getPhrase(String prefix) {
-        // TODO 하나의 zset에 가장 많이 들어있는 개수 확인하기.
+        // TODO check the number of element in the zset.
         return jedis.zrange(prefix, 0, 4);
     }
 }

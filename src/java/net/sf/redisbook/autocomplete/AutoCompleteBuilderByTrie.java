@@ -14,7 +14,7 @@ public class AutoCompleteBuilderByTrie {
     }
 
     /**
-     * 문장에 점수를 주어 자동완성 DB에 등록한다.
+     * Add a phrase to autocomplete dic.
      * @param phrase
      * @param score
      */

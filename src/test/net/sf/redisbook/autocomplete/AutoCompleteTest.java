@@ -6,7 +6,6 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.List;
 import java.util.Set;
 
 import net.sf.redisbook.JedisHelper;
@@ -14,7 +13,6 @@ import net.sf.redisbook.JedisHelper;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class AutoCompleteTest {
@@ -74,7 +72,6 @@ public class AutoCompleteTest {
 
     @Test
     public void testGetPhrase() {
-        int score = 50;
         AutoComplete autoComplete = new AutoComplete(jedisHelper);
         Set<String> phrases = null;
         for (int i = 0; i < 10000; i++) {
