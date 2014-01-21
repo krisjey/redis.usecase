@@ -51,15 +51,14 @@ public class AutoCompleteByTrieGetTest {
     }
 
     @Test
-  @Ignore
+
     public void testGetPhraseLoop() {
         AutoCompleteByTrie autoComplete = new AutoCompleteByTrie(jedisHelper);
         List<String> phrases = null;
         Random r = new Random();
 
         for (int i = 0; i < 100000; i++) {
-            char c = (char) (r.nextInt(26) + 'a');
-            phrases = autoComplete.getPhrase(String.valueOf(c));
+            phrases = autoComplete.getPhrase(String.valueOf((char) (r.nextInt(26) + 'a')));
         }
         assertNotNull(phrases);
 
