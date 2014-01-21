@@ -5,6 +5,8 @@ import java.net.URL;
 import redis.clients.jedis.Jedis;
 
 /**
+ * code from https://github.com/xp/jrediscomplete
+ *
  * Usage examples.
  *
  * @author xp

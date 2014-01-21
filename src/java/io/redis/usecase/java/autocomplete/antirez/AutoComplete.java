@@ -12,6 +12,8 @@ import java.util.Set;
 import redis.clients.jedis.Jedis;
 
 /**
+ * Code from https://github.com/xp/jrediscomplete
+ *
  * A Redis based autocomplete utility class.
  *
  * @author xp
