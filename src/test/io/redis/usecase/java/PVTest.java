@@ -1,12 +1,11 @@
-package net.sf.redis.demo;
+package io.redis.usecase.java;
 
 import static org.junit.Assert.*;
+import io.redis.usecase.java.JedisHelper;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Random;
-
-import net.sf.redisbook.JedisHelper;
 
 import org.junit.After;
 import org.junit.AfterClass;

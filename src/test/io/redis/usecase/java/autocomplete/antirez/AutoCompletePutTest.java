@@ -1,4 +1,6 @@
-package net.sf.redisbook.autocomplete.salva;
+package io.redis.usecase.java.autocomplete.antirez;
+
+import io.redis.usecase.java.autocomplete.antirez.AutoComplete;
 
 import java.io.IOException;
 import java.net.MalformedURLException;

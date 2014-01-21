@@ -1,6 +1,7 @@
-package net.sf.redisbook.autocomplete;
+package io.redis.usecase.java.autocomplete;
 
 import static org.junit.Assert.*;
+import io.redis.usecase.java.autocomplete.KoreanSoundExtractor;
 
 import org.junit.After;
 import org.junit.Before;

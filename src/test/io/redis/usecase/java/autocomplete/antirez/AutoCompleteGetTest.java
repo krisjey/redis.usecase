@@ -1,4 +1,6 @@
-package net.sf.redisbook.autocomplete.salva;
+package io.redis.usecase.java.autocomplete.antirez;
+
+import io.redis.usecase.java.autocomplete.antirez.AutoComplete;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -12,7 +14,7 @@ import org.junit.Test;
 
 import redis.clients.jedis.Jedis;
 
-public class AutoCompleteGettTest {
+public class AutoCompleteGetTest {
 
     @BeforeClass
     public static void setUpBeforeClass() throws Exception {

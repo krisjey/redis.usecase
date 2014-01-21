@@ -17,7 +17,7 @@
  ********** edited **********
  *
  ******************************************************/
-package net.sf.redisbook;
+package io.redis.usecase.java;
 
 import java.util.*;
 import org.apache.commons.pool.impl.GenericObjectPool;
@@ -32,9 +32,12 @@ import redis.clients.util.Hashing;
  * Create a Sharded jedis pool.
  */
 public class ShardedJedisHelper {
-	protected static final String SHARD1_HOST = "192.168.56.102";
+//	protected static final String SHARD1_HOST = "192.168.56.102";
+	protected static final String SHARD1_HOST = "localhost";
 	protected static final int SHARD1_PORT = 6380;
-	protected static final String SHARD2_HOST = "192.168.56.102";
+
+//	protected static final String SHARD2_HOST = "192.168.56.102";
+	protected static final String SHARD2_HOST = "localhost";
 	protected static final int SHARD2_PORT = 6381;
 
 	private final Set<ShardedJedis> connectionList = new HashSet<ShardedJedis>();

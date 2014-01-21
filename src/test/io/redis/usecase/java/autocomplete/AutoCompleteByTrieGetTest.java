@@ -1,11 +1,11 @@
-package net.sf.redisbook.autocomplete;
+package io.redis.usecase.java.autocomplete;
 
 import static org.junit.Assert.*;
+import io.redis.usecase.java.JedisHelper;
+import io.redis.usecase.java.autocomplete.AutoCompleteByTrie;
 
 import java.util.List;
 import java.util.Random;
-
-import net.sf.redisbook.JedisHelper;
 
 import org.junit.After;
 import org.junit.Before;

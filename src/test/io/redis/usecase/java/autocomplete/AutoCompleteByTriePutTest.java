@@ -1,11 +1,12 @@
-package net.sf.redisbook.autocomplete;
+package io.redis.usecase.java.autocomplete;
+
+import io.redis.usecase.java.JedisHelper;
+import io.redis.usecase.java.autocomplete.AutoCompleteBuilderByTrie;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-
-import net.sf.redisbook.JedisHelper;
 
 import org.junit.After;
 import org.junit.Before;

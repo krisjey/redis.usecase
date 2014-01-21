@@ -1,4 +1,4 @@
-package net.sf.redisbook.autocomplete;
+package io.redis.usecase.java.autocomplete;
 
 /**
  * This class convert a korean word to untie a korean.

@@ -9,7 +9,7 @@
  *  https://github.com/yonik/java_util/blob/master/src/util/hash/MurmurHash3.java.
  */
 
-package net.sf.redisbook.autocomplete;
+package io.redis.usecase.java.autocomplete;
 
 /**
  *  The MurmurHash3 algorithm was created by Austin Appleby.  This java port was authored by

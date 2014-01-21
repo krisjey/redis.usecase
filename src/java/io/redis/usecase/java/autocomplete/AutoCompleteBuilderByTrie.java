@@ -1,6 +1,6 @@
-package net.sf.redisbook.autocomplete;
+package io.redis.usecase.java.autocomplete;
 
-import net.sf.redisbook.JedisHelper;
+import io.redis.usecase.java.JedisHelper;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.Pipeline;
 import redis.clients.util.MurmurHash;

@@ -1,4 +1,4 @@
-package net.sf.redisbook.autocomplete.salva;
+package io.redis.usecase.java.autocomplete.antirez;
 
 import java.net.URL;
 

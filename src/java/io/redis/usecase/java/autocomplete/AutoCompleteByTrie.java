@@ -1,10 +1,11 @@
-package net.sf.redisbook.autocomplete;
+package io.redis.usecase.java.autocomplete;
+
+import io.redis.usecase.java.JedisHelper;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import net.sf.redisbook.JedisHelper;
 import redis.clients.jedis.Jedis;
 
 public class AutoCompleteByTrie {
