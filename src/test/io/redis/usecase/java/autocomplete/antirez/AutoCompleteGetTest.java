@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
+import java.util.Random;
 
 import org.junit.After;
 import org.junit.Before;
@@ -36,9 +37,12 @@ public class AutoCompleteGetTest {
             url = new URL("http://antirez.com/misc/female-names.txt");
             AutoComplete autoComplete = new AutoComplete.Builder(redis, "kris", url).clear(false).populate(false).build();
 
+            Random r = new Random();
+
             List<String> test = null;
-            for (int i = 0; i < 10; i++)
-                test = autoComplete.complete("4", 5);
+            for (int i = 0; i < 100000; i++) {
+                test = autoComplete.complete(String.valueOf((char) (r.nextInt(26) + 'a')), 5);
+            }
 
             System.out.println(test);
 
