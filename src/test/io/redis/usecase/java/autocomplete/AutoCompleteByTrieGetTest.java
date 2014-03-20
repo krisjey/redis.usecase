@@ -14,6 +14,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 public class AutoCompleteByTrieGetTest {
+	private static final int RETREVE_DATA_SIZE = 4;
     JedisHelper jedisHelper = JedisHelper.getInstance();
 
     @BeforeClass
@@ -34,31 +35,29 @@ public class AutoCompleteByTrieGetTest {
     public void testGetPhrase() {
         AutoCompleteByTrie autoComplete = new AutoCompleteByTrie(jedisHelper);
         List<String> phrases = null;
-        phrases = autoComplete.getPhrase("4");
+        phrases = autoComplete.getPhrase("4", RETREVE_DATA_SIZE);
         assertNotNull(phrases);
 
-        phrases = autoComplete.getPhrase("가");
+        phrases = autoComplete.getPhrase("가", RETREVE_DATA_SIZE);
         assertNotNull(phrases);
         System.out.println(phrases);
 
-        phrases = autoComplete.getPhrase("강");
+        phrases = autoComplete.getPhrase("강", RETREVE_DATA_SIZE);
         assertNotNull(phrases);
         System.out.println(phrases);
 
 //        autoComplete.releaseConnection();
-
-        System.out.println(phrases);
+//        System.out.println(phrases);
     }
 
     @Test
-
     public void testGetPhraseLoop() {
         AutoCompleteByTrie autoComplete = new AutoCompleteByTrie(jedisHelper);
         List<String> phrases = null;
         Random r = new Random();
 
         for (int i = 0; i < 100000; i++) {
-            phrases = autoComplete.getPhrase(String.valueOf((char) (r.nextInt(26) + 'a')));
+            phrases = autoComplete.getPhrase(String.valueOf((char) (r.nextInt(26) + 'a')), RETREVE_DATA_SIZE);
         }
         assertNotNull(phrases);
 

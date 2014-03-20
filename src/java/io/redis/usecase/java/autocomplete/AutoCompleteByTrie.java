@@ -20,7 +20,7 @@ public class AutoCompleteByTrie {
      * @param prefix for searching
      * @return matched data by prefix
      */
-    public List<String> getPhrase(String prefix) {
+    public List<String> getPhrase(String prefix, int size) {
         KoreanSoundExtractor koreanSoundExtractor = new KoreanSoundExtractor();
         String result = koreanSoundExtractor.getSoundExtractedString(prefix);
 
